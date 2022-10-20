@@ -1,0 +1,38 @@
+hostname CentroProdQro
+
+enable secret class
+
+banner motd #Prohibido entrar a este
+router sin autorización !!!#
+
+line con 0
+password cisco
+login
+logging synchronous
+
+line vty 0 15
+password cisco
+login
+logging synchronous
+
+service password-encryption
+
+interface gigabit 0/0
+ip address 172.16.5.30 255.255.255.224
+description Esta es la interface G0/0
+no shutdown
+
+interface serial 0/0/0
+ip address 172.16.4.250 255.255.255.252
+description A oficinas QRO
+no shutdown
+
+ip dhcp excluded-address 172.16.5.29 172.16.5.30
+
+ip dhcp pool LAN1
+network 172.16.5.0 255.255.255.224
+default-router 172.16.5.30
+dns-server 8.8.8.8
+
+ip route 172.16.4.0 255.255.255.192 S0/0/0
+ip route 0.0.0.0 0.0.0.0 S0/0/1

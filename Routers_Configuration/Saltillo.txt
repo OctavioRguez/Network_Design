@@ -1,0 +1,38 @@
+hostname Saltillo
+
+enable secret class
+
+banner motd #Prohibido entrar a este
+router sin autorización !!!#
+
+line con 0
+password cisco
+login
+logging synchronous
+
+line vty 0 15
+password cisco
+login
+logging synchronous
+
+service password-encryption
+
+interface gigabit 0/0
+ip address 172.16.7.14 255.255.255.240
+description Esta es la interface G0/0
+no shutdown
+
+interface serial 0/0/0
+ip address 172.16.6.250 255.255.255.252
+description A oficinas Mty
+no shutdown
+
+ip dhcp excluded-address 172.16.7.13 172.16.7.14
+
+ip dhcp pool LAN1
+network 172.16.7.0 255.255.255.240
+default-router 172.16.7.14
+dns-server 8.8.8.8
+
+ip route 172.16.6.0 255.255.255.192 S0/0/0
+ip route 0.0.0.0 0.0.0.0 S0/0/0

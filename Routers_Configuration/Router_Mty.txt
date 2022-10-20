@@ -1,0 +1,54 @@
+hostname OficinaMTY
+
+enable secret class
+
+banner motd #Prohibido entrar a este
+router sin autorización !!!#
+
+line con 0
+password cisco
+login
+logging synchronous
+
+line vty 0 15
+password cisco
+login
+logging synchronous
+
+service password-encryption
+
+interface gigabit 0/0
+ip address 172.16.6.30 255.255.255.224
+description Esta es la interface G0/0
+no shutdown
+
+interface gigabit 0/1
+ip address 172.16.6.62 255.255.255.224
+description Esta es la interface G0/1
+no shutdown
+
+interface serial 0/0/0
+ip address 172.16.6.249 255.255.255.252
+description A centro de produccion Saltillo
+no shutdown
+
+interface serial 0/0/1
+ip address 130.107.89.250 255.255.255.252
+description Esta es la interface se0/0/1
+no shutdown
+
+ip dhcp excluded-address 172.16.6.29 172.16.6.30
+ip dhcp excluded-address 172.16.6.61 172.16.6.62
+
+ip dhcp pool LAN1
+network 172.16.6.0 255.255.255.224
+default-router 172.16.6.30
+dns-server 8.8.8.8
+
+ip dhcp pool LAN2
+network 172.16.6.33 255.255.255.224
+default-router 172.16.6.62
+dns-server 8.8.8.8
+
+ip route 172.16.7.0 255.255.255.240 S0/0/0
+ip route 0.0.0.0 0.0.0.0 S0/0/1

@@ -1,0 +1,38 @@
+hostname OficinaMEX
+
+enable secret class
+
+banner motd #Prohibido entrar a este
+router sin autorización !!!#
+
+line con 0
+password cisco
+login
+logging synchronous
+
+line vty 0 15
+password cisco
+login
+logging synchronous
+
+service password-encryption
+
+interface gigabit 0/0
+ip address 172.16.0.126 255.255.255.128
+description Esta es la interface G0/0
+no shutdown
+
+interface serial 0/0/1
+ip address 152.78.212.18 255.255.255.252
+description Esta es la interface se0/0/1
+no shutdown
+
+ip dhcp excluded-address 172.16.0.1 172.16.0.4
+ip dhcp excluded-address 172.16.0.120 172.16.0.126
+
+ip dhcp pool LAN1
+network 172.16.0.0 255.255.255.128
+default-router 172.16.0.126
+dns-server 8.8.8.8
+
+ip route 0.0.0.0 0.0.0.0 S0/0/1
