@@ -1,0 +1,25 @@
+hostname sMty1
+
+enable secret class
+
+line con 0
+password cisco
+login
+logging synchronous
+
+line vty 0 15
+password cisco
+login
+logging synchronous
+
+service password-encryption
+
+banner motd #Prohibido entrar a este
+switch sin autorización !!!#
+
+ip default-gateway 172.16.6.30
+
+interface vlan1
+ip address 172.16.6.29 255.255.255.224
+description Esta es la vlan1
+no shutdown
