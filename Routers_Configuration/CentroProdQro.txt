@@ -35,4 +35,4 @@ default-router 172.16.5.30
 dns-server 8.8.8.8
 
 ip route 172.16.4.0 255.255.255.192 S0/0/0
-ip route 0.0.0.0 0.0.0.0 S0/0/1
+ip route 0.0.0.0 0.0.0.0 S0/0/0
