@@ -43,6 +43,8 @@ ip address 152.78.212.18 255.255.255.252
 description Esta es la interface se0/0/1
 no shutdown
 
+ip dhcp excluded-address 172.16.0.1
+ip dhcp excluded-address 172.16.0.126
 ip dhcp pool Empleados
 network 172.16.0.0 255.255.255.128
 default-router 172.16.0.126
