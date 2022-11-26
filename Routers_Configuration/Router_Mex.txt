@@ -22,19 +22,19 @@ no ip address
 description Troncal
 no shutdown
 
-default interface GigabitEthernet0/0/0
+default interface GigabitEthernet0/0
 
-interface gigabit 0/0/0.10
+interface gigabit 0/0.10
 encapsulation dot1Q 10
 description ServidoresCDMx
 ip address 172.16.0.238 255.255.255.240
 
-interface gigabit 0/0/0.20
+interface gigabit 0/0.20
 encapsulation dot1Q 20
 description EmpleadosCDMx
 ip address 172.16.0.126 255.255.255.128
 
-interface gigabit 0/0/0.30
+interface gigabit 0/0.30
 encapsulation dot1Q 30
 description Admin
 ip address 172.16.0.254 255.255.255.240
