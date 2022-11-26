@@ -33,10 +33,10 @@ ip add 172.16.8.209 255.255.255.240
 ip default-gateway 172.16.8.222
 
 vlan 10
-name ServiciosMty
+name ServiciosGda
 
 vlan 20
-name EmpleadosMty
+name EmpleadosGda
 
 vlan 30
 name Admin
