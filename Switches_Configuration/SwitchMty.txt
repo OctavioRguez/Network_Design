@@ -30,7 +30,7 @@ ip default-gateway 172.16.6.62
 interface Vlan30
 description vlan admin
 ip add 172.16.6.209 255.255.255.240
-ip default-gateway 172.16.0.222
+ip default-gateway 172.16.6.222
 
 vlan 10
 name ServiciosMty
