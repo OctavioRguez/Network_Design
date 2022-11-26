@@ -26,17 +26,17 @@ no shutdown
 interface gigabit 0/0.10
 encapsulation dot1Q 10
 description ServidoresCDMx
-ip address 172.16.0.238 255.255.255.240
+ip address 172.16.0.225 255.255.255.240
 
 interface gigabit 0/0.20
 encapsulation dot1Q 20
 description EmpleadosCDMx
-ip address 172.16.0.126 255.255.255.128
+ip address 172.16.0.1 255.255.255.128
 
 interface gigabit 0/0.30
 encapsulation dot1Q 30
 description Admin
-ip address 172.16.0.254 255.255.255.240
+ip address 172.16.0.241 255.255.255.240
 
 interface serial 0/0/1
 ip address 152.78.212.18 255.255.255.252
