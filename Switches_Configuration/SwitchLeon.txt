@@ -40,7 +40,7 @@ name EmpleadosLeon
 vlan 30
 name Admin
 
-interface range fast0/1-3
+interface range fast0/1-2
 description vlan 10 Servicios
 switchport mode access
 switchport access vlan 10
@@ -50,7 +50,7 @@ switchport port-security
 no cdp enable
 spanning-tree portfast
 
-interface range fast0/4-5
+interface range fast0/3-4
 description vlan 20 Empleados
 switchport mode access
 switchport access vlan 20
