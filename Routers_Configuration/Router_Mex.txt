@@ -47,9 +47,4 @@ no shutdown
 ip dhcp excluded-address 172.16.0.1 172.16.0.4
 ip dhcp excluded-address 172.16.0.120 172.16.0.126
 
-ip dhcp pool LAN1
-network 172.16.0.0 255.255.255.128
-default-router 172.16.0.126
-dns-server 8.8.8.8
-
 ip route 0.0.0.0 0.0.0.0 S0/0/1
