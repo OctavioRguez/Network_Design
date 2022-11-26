@@ -45,7 +45,7 @@ no shutdown
 
 ip dhcp pool Empleados
 network 172.16.0.0 255.255.255.128
-default-router 192.168.0.126
+default-router 172.16.0.126
 dns-server 8.8.8.8
 
 ip route 0.0.0.0 0.0.0.0 S0/0/1
