@@ -1,4 +1,4 @@
-hostname sGDA1
+hostname sGDA
 
 enable secret class
 
