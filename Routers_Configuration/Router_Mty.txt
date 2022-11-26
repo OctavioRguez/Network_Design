@@ -23,6 +23,10 @@ no ip address
 description Troncal
 no shutdown
 
+interface gigabit 0/1
+no ip address
+shutdown
+
 interface gigabit 0/0.10
 encapsulation dot1Q 10
 description ServiciosMty
