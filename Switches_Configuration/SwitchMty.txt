@@ -36,7 +36,7 @@ vlan 10
 name ServiciosMty
 
 vlan 20
-name EmpeladosMty
+name EmpleadosMty
 
 vlan 30
 name Admin
