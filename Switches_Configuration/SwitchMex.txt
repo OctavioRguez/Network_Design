@@ -1,4 +1,4 @@
-hostname sMex1
+hostname sMex
 
 enable secret class
 
@@ -17,9 +17,51 @@ service password-encryption
 banner motd #Prohibido entrar a este
 switch sin autorización !!!#
 
+interface Vlan10
+description vlan Servers
+ip add 172.16.0.225 255.255.255.240
+ip default-gateway 172.16.0.238
+
+interface Vlan20
+description vlan Empleados
+ip add 172.16.0.1 255.255.255.128
 ip default-gateway 172.16.0.126
 
-interface vlan1
-ip address 172.16.0.125 255.255.255.128
-description Esta es la vlan1
-no shutdown
+interface Vlan30
+description vlan admin
+ip add 172.16.0.241 255.255.255.240
+ip default-gateway 172.16.0.254
+
+vlan 10
+name ServersCDMx
+
+vlan 20
+name EmpleadosCDMx
+
+vlan 30
+name Admin
+
+interface range fast0/1-4
+description vlan 10 ServersCDMx
+switchport mode access
+switchport access vlan 10
+no lldp receive
+no lldp transmit
+switchport port-security
+no cdp enable
+spanning-tree portfast
+
+interface range fast0/5-8
+description vlan 20 EmpleadosCDMx
+switchport mode access
+switchport access vlan 20
+no lldp receive
+no lldp transmit
+switchport port-security
+no cdp enable
+spanning-tree portfast
+
+interface GigabitEthernet0/1
+description Al router
+switchport mode trunk
+no shut
