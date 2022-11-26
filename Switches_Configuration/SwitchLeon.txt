@@ -1,4 +1,4 @@
-hostname sLeon1
+hostname sLeon
 
 enable secret class
 
