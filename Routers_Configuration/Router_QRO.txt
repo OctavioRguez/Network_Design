@@ -85,7 +85,7 @@ router eigrp 2
 network 172.16.4.128 0.0.0.63
 network 172.16.4.224 0.0.0.15
 network 172.16.4.240 0.0.0.15
-network 198.68.0.0 0.0.0.255
+network 198.68.0.0
 passive-interface default
 no passive-interface g0/1
 no auto-summary
