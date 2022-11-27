@@ -41,7 +41,12 @@ ip address 172.16.5.190 255.255.255.224
 interface gigabit 0/0.40
 encapsulation dot1Q 40
 description ServiciosCProdQro
-ip address 172.16.5.238 255.255.255.240
+ip address 172.16.5.206 255.255.255.240
+
+interface gigabit 0/0.50
+encapsulation dot1Q 50
+description Admin
+ip address 172.16.5.222 255.255.255.240
 
 interface serial 0/0/0
 ip address 172.16.4.250 255.255.255.252
