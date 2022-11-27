@@ -48,9 +48,6 @@ ip address 172.16.4.250 255.255.255.252
 description A oficinas QRO
 no shutdown
 
-no ip dhcp excluded-address 172.16.5.29 172.16.5.30
-no ip dhcp pool LAN1
-
 ip dhcp excluded-address 172.16.5.1
 ip dhcp excluded-address 172.16.5.126
 ip dhcp pool SensoresSuelo
