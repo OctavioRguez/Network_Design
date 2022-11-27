@@ -17,25 +17,25 @@ service password-encryption
 banner motd #Prohibido entrar a este
 switch sin autorización !!!#
 
-interface Vlan10
-description vlan SenSueloQro
-ip add 172.16.5.1 255.255.255.128
-ip default-gateway 172.16.5.126
+!interface Vlan10
+!description vlan SenSueloQro
+!ip add 172.16.5.1 255.255.255.128
+!ip default-gateway 172.16.5.126
 
-interface Vlan20
-description vlan SenAmbientalesQro
-ip add 172.16.5.129 255.255.255.224
-ip default-gateway 172.16.5.158
+!interface Vlan20
+!description vlan SenAmbientalesQro
+!ip add 172.16.5.129 255.255.255.224
+!ip default-gateway 172.16.5.158
 
-interface Vlan30
-description vlan EmpleadosCProdQro
-ip add 172.16.5.161 255.255.255.224
-ip default-gateway 172.16.5.190
+!interface Vlan30
+!description vlan EmpleadosCProdQro
+!ip add 172.16.5.161 255.255.255.224
+!ip default-gateway 172.16.5.190
 
-interface Vlan40
-description vlan ServiciosCProdQro
-ip add 172.16.5.225 255.255.255.240
-ip default-gateway 172.16.5.238
+!interface Vlan40
+!description vlan ServiciosCProdQro
+!ip add 172.16.5.225 255.255.255.240
+!ip default-gateway 172.16.5.238
 
 vlan 10
 name SenSueloQro
