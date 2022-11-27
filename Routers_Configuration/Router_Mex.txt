@@ -7,17 +7,19 @@ router sin autorización !!!#
 
 line con 0
 password cisco
-login
+login local
 logging synchronous
+exec-timeout 5
 
 line vty 0 15
 password cisco
-login
+login local
 logging synchronous
+exec-timeout 5
 
 service password-encryption
 
-default interface GigabitEthernet0/0
+default interface gigabit 0/0
 interface gigabit 0/0
 no ip address
 description Troncal
@@ -40,10 +42,9 @@ ip address 172.16.0.254 255.255.255.240
 
 interface serial 0/0/1
 ip address 152.78.212.18 255.255.255.252
-description Esta es la interface se0/0/1
+description Esta es la interface s0/0/1
 no shutdown
 
-ip dhcp excluded-address 172.16.0.1
 ip dhcp excluded-address 172.16.0.126
 ip dhcp pool Empleados
 network 172.16.0.0 255.255.255.128
