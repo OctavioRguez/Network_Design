@@ -18,12 +18,12 @@ banner motd #Prohibido entrar a este
 switch sin autorización !!!#
 
 interface Vlan10
-description vlan SenAmbientalesQro
+description vlan SenSueloQro
 ip add 172.16.5.1 255.255.255.128
 ip default-gateway 172.16.5.126
 
 interface Vlan20
-description vlan SenSueloQro
+description vlan SenAmbientalesQro
 ip add 172.16.5.129 255.255.255.224
 ip default-gateway 170.16.5.158
 
@@ -38,10 +38,10 @@ ip add 172.16.5.225 255.255.255.240
 ip default-gateway 170.16.5.238
 
 vlan 10
-name SenAmbientalesQro
+name SenSueloQro
 
 vlan 20
-name SenSueloQro
+name SenAmbientalesQro
 
 vlan 30
 name EmpleadosCProdQro
@@ -49,8 +49,8 @@ name EmpleadosCProdQro
 vlan 40
 name ServiciosCProdQro
 
-interface range fast0/5
-description vlan 10 SenAmbientales
+interface range fast0/6
+description vlan 10 SenSuelo
 switchport mode access
 switchport access vlan 10
 no lldp receive
@@ -59,8 +59,8 @@ switchport port-security
 no cdp enable
 spanning-tree portfast
 
-interface range fast0/6
-description vlan 20 SenSuelo
+interface range fast0/5
+description vlan 20 SenAmbientales
 switchport mode access
 switchport access vlan 20
 no lldp receive
