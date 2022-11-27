@@ -56,18 +56,6 @@ ip address 172.16.7.254 255.255.255.252
 description A oficinas Mty
 no shutdown
 
-ip dhcp excluded-address 172.16.7.126
-ip dhcp pool SensoresSuelo
-network 172.16.7.0 255.255.255.128
-default-router 172.16.7.126
-dns-server 8.8.8.8
-
-ip dhcp excluded-address 172.16.7.158
-ip dhcp pool SensoresAmbientales
-network 172.16.7.128 255.255.255.224
-default-router 172.16.7.158
-dns-server 8.8.8.8
-
 ip dhcp excluded-address 172.16.7.190
 ip dhcp pool Empleados
 network 172.16.7.160 255.255.255.224
