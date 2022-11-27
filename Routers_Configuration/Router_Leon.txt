@@ -30,26 +30,31 @@ interface gigabit 0/0.10
 encapsulation dot1Q 10
 description Empleados
 ip address 172.16.10.190 255.255.255.192
+ip nat inside
 
 interface gigabit 0/0.20
 encapsulation dot1Q 20
 description Servicios
 ip address 172.16.10.238 255.255.255.240
+ip nat inside
 
 interface gigabit 0/0.30
 encapsulation dot1Q 30
 description Admin
 ip address 172.16.10.254 255.255.255.240
+ip nat inside
 
 interface serial 0/0/0
 ip address 172.16.11.253 255.255.255.252
 description A Centro de produccion QRO
 no shutdown
+ip nat inside
 
 interface serial 0/0/1
 ip address 201.254.78.162 255.255.255.252
 description Esta es la interface se0/0/1
 no shutdown
+ip nat outside
 
 ip dhcp excluded-address 172.16.10.190
 ip dhcp pool Empleados
@@ -59,3 +64,14 @@ dns-server 8.8.8.8
 
 ip route 172.16.11.0 255.255.255.0 S0/0/0
 ip route 0.0.0.0 0.0.0.0 S0/0/1
+
+ip nat inside source static 201.254.78.1 172.16.10.225
+ip nat inside source static 201.254.78.2 172.16.11.193
+
+ip nat pool LAN-EXTERNO 201.254.78.3 201.254.78.30 netmask 255.255.255.224
+
+access-list 101 remark Empleados
+access-list 101 permit ip 172.16.10.128 0.0.0.63 any
+access-list 101 permit ip 172.16.11.160 0.0.0.31 any
+
+ip nat inside source list 101 interface pool LAN-EXTERNO
