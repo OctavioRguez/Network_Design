@@ -25,17 +25,17 @@ ip default-gateway 172.16.5.126
 interface Vlan20
 description vlan SenAmbientalesQro
 ip add 172.16.5.129 255.255.255.224
-ip default-gateway 170.16.5.158
+ip default-gateway 172.16.5.158
 
 interface Vlan30
 description vlan EmpleadosCProdQro
 ip add 172.16.5.161 255.255.255.224
-ip default-gateway 170.16.5.190
+ip default-gateway 172.16.5.190
 
 interface Vlan40
 description vlan ServiciosCProdQro
 ip add 172.16.5.225 255.255.255.240
-ip default-gateway 170.16.5.238
+ip default-gateway 172.16.5.238
 
 vlan 10
 name SenSueloQro
