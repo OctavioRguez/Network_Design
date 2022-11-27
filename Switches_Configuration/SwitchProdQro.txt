@@ -19,23 +19,23 @@ switch sin autorización !!!#
 
 interface Vlan10
 description vlan SenAmbientalesQro
-ip add 172.16.4.193 255.255.255.240
-ip default-gateway 172.16.4.206
+ip add 172.16.5.1 255.255.255.128
+ip default-gateway 172.16.5.126
 
 interface Vlan20
 description vlan SenSueloQro
-ip add 172.16.4.1 255.255.255.192
-ip default-gateway 172.16.4.62
+ip add 170.16.5.129 255.255.255.224
+ip default-gateway 170.16.5.158
 
 interface Vlan30
 description vlan EmpleadosCProdQro
-ip add 172.16.4.209 255.255.255.240
-ip default-gateway 172.16.4.222
+ip add 170.16.5.161 255.255.255.224
+ip default-gateway 170.16.5.190
 
 interface Vlan40
 description vlan ServiciosCProdQro
-ip add 172.16.4.209 255.255.255.240
-ip default-gateway 172.16.4.222
+ip add 170.16.5.225 255.255.255.240
+ip default-gateway 170.16.5.238
 
 vlan 10
 name SenAmbientalesQro
@@ -72,7 +72,7 @@ spanning-tree portfast
 interface range fast0/3-4
 description vlan 30 Empleados
 switchport mode access
-switchport access vlan 20
+switchport access vlan 30
 no lldp receive
 no lldp transmit
 switchport port-security
@@ -82,7 +82,7 @@ spanning-tree portfast
 interface range fast0/3-4
 description vlan 40 Servicios
 switchport mode access
-switchport access vlan 20
+switchport access vlan 40
 no lldp receive
 no lldp transmit
 switchport port-security
