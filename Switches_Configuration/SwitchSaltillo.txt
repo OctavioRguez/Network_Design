@@ -16,10 +16,3 @@ service password-encryption
 
 banner motd #Prohibido entrar a este
 switch sin autorización !!!#
-
-ip default-gateway 172.16.7.14
-
-interface vlan1
-ip address 172.16.7.13 255.255.255.240
-description Esta es la vlan1
-no shutdown
