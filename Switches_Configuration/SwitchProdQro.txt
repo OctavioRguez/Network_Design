@@ -83,4 +83,4 @@ spanning-tree portfast
 interface gigabit 0/1
 description Al router
 switchport mode trunk
-no shut
+no shutdown
