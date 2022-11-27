@@ -1,5 +1,6 @@
 hostname sGDA
 
+username cisco secret cisco
 enable secret class
 
 line con 0
