@@ -1,5 +1,6 @@
 hostname OficinaMTY
 
+username cisco secret cisco
 enable secret class
 
 banner motd #Prohibido entrar a este
