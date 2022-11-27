@@ -30,26 +30,31 @@ interface gigabit 0/0.10
 encapsulation dot1Q 10
 description Empleados
 ip address 172.16.6.190 255.255.255.192
+ip nat inside
 
 interface gigabit 0/0.20
 encapsulation dot1Q 20
 description Servicios
 ip address 172.16.6.238 255.255.255.240
+ip nat inside
 
 interface gigabit 0/0.30
 encapsulation dot1Q 30
 description Admin
 ip address 172.16.6.254 255.255.255.240
+ip nat inside
 
 interface serial 0/0/0
 ip address 172.16.7.253 255.255.255.252
 description A centro de produccion Saltillo
 no shutdown
+ip nat inside
 
 interface serial 0/0/1
 ip address 130.107.89.250 255.255.255.252
 description Esta es la interface s0/0/1
 no shutdown
+ip nat outside
 
 ip dhcp excluded-address 172.16.6.190
 ip dhcp pool Empleados
