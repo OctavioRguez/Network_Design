@@ -55,9 +55,6 @@ ip address 172.16.11.254 255.255.255.252
 description A oficinas Leon
 no shutdown
 
-no ip dhcp excluded-address 172.16.11.13 172.16.11.14
-no ip dhcp pool LAN1
-
 ip dhcp excluded-address 172.16.11.126
 ip dhcp pool SensoresSuelo
 network 172.16.11.0 255.255.255.128
