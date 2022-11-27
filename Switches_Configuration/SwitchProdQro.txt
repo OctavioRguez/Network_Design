@@ -16,3 +16,80 @@ service password-encryption
 
 banner motd #Prohibido entrar a este
 switch sin autorización !!!#
+
+interface Vlan10
+description vlan SenAmbientalesQro
+ip add 172.16.4.193 255.255.255.240
+ip default-gateway 172.16.4.206
+
+interface Vlan20
+description vlan SenSueloQro
+ip add 172.16.4.1 255.255.255.192
+ip default-gateway 172.16.4.62
+
+interface Vlan30
+description vlan EmpleadosCProdQro
+ip add 172.16.4.209 255.255.255.240
+ip default-gateway 172.16.4.222
+
+interface Vlan40
+description vlan ServiciosCProdQro
+ip add 172.16.4.209 255.255.255.240
+ip default-gateway 172.16.4.222
+
+vlan 10
+name SenAmbientalesQro
+
+vlan 20
+name SenSueloQro
+
+vlan 30
+name EmpleadosCProdQro
+
+vlan 40
+ServiciosCProdQro
+
+interface range fast0/1-2
+description vlan 10 SenAmbientales
+switchport mode access
+switchport access vlan 10
+no lldp receive
+no lldp transmit
+switchport port-security
+no cdp enable
+spanning-tree portfast
+
+interface range fast0/3-4
+description vlan 20 SenSuelo
+switchport mode access
+switchport access vlan 20
+no lldp receive
+no lldp transmit
+switchport port-security
+no cdp enable
+spanning-tree portfast
+
+interface range fast0/3-4
+description vlan 30 Empleados
+switchport mode access
+switchport access vlan 20
+no lldp receive
+no lldp transmit
+switchport port-security
+no cdp enable
+spanning-tree portfast
+
+interface range fast0/3-4
+description vlan 40 Servicios
+switchport mode access
+switchport access vlan 20
+no lldp receive
+no lldp transmit
+switchport port-security
+no cdp enable
+spanning-tree portfast
+
+interface GigabitEthernet0/1
+description Al router
+switchport mode trunk
+no shut
