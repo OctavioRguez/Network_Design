@@ -4,55 +4,40 @@ enable secret class
 
 line con 0
 password cisco
-login
+login local
 logging synchronous
+exec-timeout 5
 
 line vty 0 15
 password cisco
-login
+login local
 logging synchronous
+exec-timeout 5
 
 service password-encryption
 
 banner motd #Prohibido entrar a este
-switch sin autorización !!!#
+switch sin autorizacion !!!#
 
-interface Vlan10
-description vlan Servicios
-ip add 172.16.4.193 255.255.255.240
-ip default-gateway 172.16.4.206
+interface Vlan1
+no ip address
+shutdown
+no ip default-gateway
 
-interface Vlan20
-description vlan Empleados
-ip add 172.16.4.1 255.255.255.192
-ip default-gateway 172.16.4.62
+vlan 10
+name EmpleadosQro
+
+vlan 20
+name ServiciosQro
 
 interface Vlan30
 description vlan admin
-ip add 172.16.4.209 255.255.255.240
-ip default-gateway 172.16.4.222
-
-vlan 10
-name ServiciosQro
-
-vlan 20
-name EmpleadosQro
-
-vlan 30
-name Admin
+ip add 172.16.4.241 255.255.255.240
+no shutdown
+ip default-gateway 172.16.4.254
 
 interface range fast0/1-2
-description vlan 10 Servicios
-switchport mode access
-switchport access vlan 10
-no lldp receive
-no lldp transmit
-switchport port-security
-no cdp enable
-spanning-tree portfast
-
-interface range fast0/3-4
-description vlan 20 Empleados
+description vlan 20 Servicios
 switchport mode access
 switchport access vlan 20
 no lldp receive
@@ -61,7 +46,17 @@ switchport port-security
 no cdp enable
 spanning-tree portfast
 
-interface GigabitEthernet0/1
+interface range fast0/3-4
+description vlan 10 Empleados
+switchport mode access
+switchport access vlan 10
+no lldp receive
+no lldp transmit
+switchport port-security
+no cdp enable
+spanning-tree portfast
+
+interface gigabit 0/1
 description Al router
 switchport mode trunk
-no shut
+no shutdown
