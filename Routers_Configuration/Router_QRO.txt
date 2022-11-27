@@ -50,6 +50,11 @@ description A Centro de produccion QRO
 no shutdown
 ip nat inside
 
+interface gigabit 0/1
+ip address 192.168.0.2 255.255.255.0
+description MPLS
+no shutdown
+
 interface serial 0/0/1
 ip address 132.254.78.254 255.255.255.252
 description Esta es la interface se0/0/1
@@ -75,3 +80,12 @@ access-list 101 permit ip 172.16.4.128 0.0.0.63 any
 access-list 101 permit ip 172.16.5.160 0.0.0.31 any
 
 ip nat inside source list 101 pool LAN-EXTERNO
+
+router eigrp 2
+network 172.16.4.128 0.0.0.63
+network 172.16.4.224 0.0.0.15
+network 172.16.4.240 0.0.0.15
+network 198.68.0.0 0.0.0.255
+passive-interface default
+no passive-interface g0/1
+no auto-summary
