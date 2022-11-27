@@ -44,6 +44,11 @@ description Admin
 ip address 172.16.8.254 255.255.255.240
 ip nat inside
 
+interface gigabit 0/1
+ip address 192.168.0.3 255.255.255.0
+description MPLS
+no shutdown
+
 interface serial 0/0/0
 ip address 172.16.9.253 255.255.255.252
 description A Centro de produccion GDA
@@ -76,3 +81,12 @@ access-list 101 permit ip 172.16.8.128 0.0.0.63 any
 access-list 101 permit ip 172.16.9.160 0.0.0.31 any
 
 ip nat inside source list 101 pool LAN-EXTERNO
+
+router eigrp 2
+network 172.16.8.128 0.0.0.63
+network 172.16.8.224 0.0.0.15
+network 172.16.8.240 0.0.0.15
+network 198.68.0.0 0.0.0.255
+passive-interface default
+no passive-interface g0/1
+no auto-summary
