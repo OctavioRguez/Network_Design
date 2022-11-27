@@ -7,17 +7,19 @@ router sin autorización !!!#
 
 line con 0
 password cisco
-login
+login local
 logging synchronous
+exec-timeout 5
 
 line vty 0 15
 password cisco
-login
+login local
 logging synchronous
+exec-timeout 5
 
 service password-encryption
 
-default interface GigabitEthernet0/0
+default interface gigabit 0/0
 interface gigabit 0/0
 no ip address
 description Troncal
@@ -49,25 +51,22 @@ description Admin
 ip address 172.16.5.222 255.255.255.240
 
 interface serial 0/0/0
-ip address 172.16.4.250 255.255.255.252
+ip address 172.16.5.254 255.255.255.252
 description A oficinas QRO
 no shutdown
 
-ip dhcp excluded-address 172.16.5.1
 ip dhcp excluded-address 172.16.5.126
 ip dhcp pool SensoresSuelo
 network 172.16.5.0 255.255.255.128
 default-router 172.16.5.126
 dns-server 8.8.8.8
 
-ip dhcp excluded-address 172.16.5.129
 ip dhcp excluded-address 172.16.5.158
 ip dhcp pool SensoresAmbientales
 network 172.16.5.128 255.255.255.224
 default-router 172.16.5.158
 dns-server 8.8.8.8
 
-ip dhcp excluded-address 172.16.5.161
 ip dhcp excluded-address 172.16.5.190
 ip dhcp pool Empleados
 network 172.16.5.160 255.255.255.224
