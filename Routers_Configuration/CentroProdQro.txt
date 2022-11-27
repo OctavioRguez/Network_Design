@@ -64,7 +64,7 @@ default-router 170.16.5.158
 dns-server 8.8.8.8
 exit
 
-ip dhcp excluded-address 172.16.5.162
+ip dhcp excluded-address 172.16.5.161
 ip dhcp excluded-address 170.16.5.190
 ip dhcp pool Empleados
 network 170.16.5.160 255.255.255.224
