@@ -3,21 +3,23 @@ hostname OficinaQro
 enable secret class
 
 banner motd #Prohibido entrar a este
-router sin autorización !!!#
+router sin autorizacion !!!#
 
 line con 0
 password cisco
-login
+login local
 logging synchronous
+exec-timeout 5
 
 line vty 0 15
 password cisco
-login
+login local
 logging synchronous
+exec-timeout 5
 
 service password-encryption
 
-default interface GigabitEthernet0/0
+default interface gigabit 0/0
 interface gigabit 0/0
 no ip address
 description Troncal
@@ -25,18 +27,18 @@ no shutdown
 
 interface gigabit 0/0.10
 encapsulation dot1Q 10
-description ServiciosQro
-ip address 172.16.4.206 255.255.255.240
+description Empleados
+ip address 172.16.4.190 255.255.255.192
 
 interface gigabit 0/0.20
 encapsulation dot1Q 20
-description EmpleadosQro
-ip address 172.16.4.62 255.255.255.192
+description Servicios
+ip address 172.16.4.238 255.255.255.240
 
 interface gigabit 0/0.30
 encapsulation dot1Q 30
 description Admin
-ip address 172.16.4.222 255.255.255.240
+ip address 172.16.4.254 255.255.255.240
 
 interface serial 0/0/0
 ip address 172.16.5.253 255.255.255.252
@@ -48,11 +50,10 @@ ip address 132.254.78.254 255.255.255.252
 description Esta es la interface se0/0/1
 no shutdown
 
-ip dhcp excluded-address 172.16.4.1
-ip dhcp excluded-address 172.16.4.62
+ip dhcp excluded-address 172.16.4.190
 ip dhcp pool Empleados
-network 172.16.4.0 255.255.255.192
-default-router 172.16.4.62
+network 172.16.4.128 255.255.255.192
+default-router 172.16.4.190
 dns-server 8.8.8.8
 
 ip route 172.16.5.0 255.255.255.0 S0/0/0
