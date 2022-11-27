@@ -65,8 +65,8 @@ dns-server 8.8.8.8
 ip route 172.16.5.0 255.255.255.0 S0/0/0
 ip route 0.0.0.0 0.0.0.0 S0/0/1
 
-ip nat inside source static tcp 132.254.78.193 172.16.4.225
-ip nat inside source static tcp 132.254.78.194 172.16.5.193
+ip nat inside source static 132.254.78.193 172.16.4.225
+ip nat inside source static 132.254.78.194 172.16.5.193
 
 ip nat pool LAN-EXTERNO 132.254.78.195 132.254.78.222 netmask 255.255.255.224
 
