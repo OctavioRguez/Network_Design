@@ -59,3 +59,15 @@ dns-server 8.8.8.8
 
 ip route 172.16.9.0 255.255.255.0 S0/0/0
 ip route 0.0.0.0 0.0.0.0 S0/0/1
+
+ip nat inside source static 187.45.96.65 172.16.8.225
+ip nat inside source static 187.45.96.66 172.16.8.226
+ip nat inside source static 187.45.96.67 172.16.9.193
+
+ip nat pool LAN-EXTERNO 187.45.96.68 187.45.96.78 netmask 255.255.255.240
+
+access-list 101 remark Empleados
+access-list 101 permit ip 172.16.8.128 0.0.0.63 any
+access-list 101 permit ip 172.16.9.160 0.0.0.31 any
+
+ip nat inside source list 101 pool LAN-EXTERNO
