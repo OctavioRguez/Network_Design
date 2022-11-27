@@ -30,26 +30,46 @@ interface gigabit 0/0.10
 encapsulation dot1Q 10
 description Empleados
 ip address 172.16.0.126 255.255.255.128
+ip nat inside
 
 interface gigabit 0/0.20
 encapsulation dot1Q 20
 description Servidores
 ip address 172.16.0.238 255.255.255.240
+ip nat inside
 
 interface gigabit 0/0.30
 encapsulation dot1Q 30
 description Admin
 ip address 172.16.0.254 255.255.255.240
+ip nat inside
 
 interface serial 0/0/1
 ip address 152.78.212.18 255.255.255.252
 description Esta es la interface s0/0/1
 no shutdown
+ip nat outside
 
-ip dhcp excluded-address 172.16.0.126
 ip dhcp pool Empleados
+ip dhcp excluded-address 172.16.0.126
 network 172.16.0.0 255.255.255.128
 default-router 172.16.0.126
 dns-server 8.8.8.8
 
 ip route 0.0.0.0 0.0.0.0 S0/0/1
+
+ip nat inside source static tcp 172.16.0.225 152.78.211.1 
+ip nat inside source static tcp 172.16.0.226 152.78.211.2
+ip nat inside source static tcp 172.16.0.227 152.78.211.3 
+ip nat inside source static tcp 172.16.0.228 152.78.211.4 
+
+ip nat pool LAN-EXTERNO 152.78.211.5 152.78.211.254 netmask 255.255.255.0
+
+access-list 101 remark Empleados y Servers
+access-list 101 permit ip host 172.16.0.225 any
+access-list 101 permit ip host 172.16.0.226 any
+access-list 101 permit ip host 172.16.0.227 any
+access-list 101 permit ip host 172.16.0.228 any
+access-list 101 permit ip 172.16.0.0 0.0.0.127 any
+
+ip nat inside source list 101 interface pool LAN-EXTERNO
