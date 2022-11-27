@@ -40,7 +40,7 @@ ip address 172.16.5.209 255.255.255.240
 no shutdown
 ip default-gateway 172.16.5.222
 
-interface range fast0/6
+interface range fast 0/6
 description vlan 10 SenSuelo
 switchport mode access
 switchport access vlan 10
@@ -50,7 +50,7 @@ switchport port-security
 no cdp enable
 spanning-tree portfast
 
-interface range fast0/5
+interface range fast 0/5
 description vlan 20 SenAmbientales
 switchport mode access
 switchport access vlan 20
@@ -60,7 +60,7 @@ switchport port-security
 no cdp enable
 spanning-tree portfast
 
-interface range fast0/4
+interface range fast 0/4
 description vlan 30 Empleados
 switchport mode access
 switchport access vlan 30
@@ -70,7 +70,7 @@ switchport port-security
 no cdp enable
 spanning-tree portfast
 
-interface range fast0/1-3
+interface range fast 0/1-3
 description vlan 40 Servicios
 switchport mode access
 switchport access vlan 40
@@ -80,7 +80,7 @@ switchport port-security
 no cdp enable
 spanning-tree portfast
 
-interface gigabit0/1
+interface gigabit 0/1
 description Al router
 switchport mode trunk
 no shut
