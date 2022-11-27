@@ -17,22 +17,47 @@ logging synchronous
 
 service password-encryption
 
+default interface GigabitEthernet0/0
 interface gigabit 0/0
-ip address 172.16.5.30 255.255.255.224
-description Esta es la interface G0/0
+no ip address
+description Troncal
 no shutdown
+
+interface gigabit 0/0.10
+encapsulation dot1Q 10
+description SenAmbientalesQro
+ip address 172.16.5.126 255.255.255.128
+
+interface gigabit 0/0.20
+encapsulation dot1Q 20
+description SenSueloQro
+ip address 170.16.5.158 255.255.255.224
+
+interface gigabit 0/0.30
+encapsulation dot1Q 30
+description EmpleadosCProdQro
+ip address 170.16.5.190 255.255.255.224
+
+interface gigabit 0/0.40
+encapsulation dot1Q 40
+description ServiciosCProdQro
+ip address 170.16.5.238 255.255.255.240
 
 interface serial 0/0/0
 ip address 172.16.4.250 255.255.255.252
 description A oficinas QRO
 no shutdown
 
-ip dhcp excluded-address 172.16.5.29 172.16.5.30
+no ip dhcp excluded-address 172.16.5.29 172.16.5.30
+no ip dhcp pool LAN1
 
-ip dhcp pool LAN1
-network 172.16.5.0 255.255.255.224
-default-router 172.16.5.30
+ip dhcp excluded-address 172.16.5.1
+ip dhcp excluded-address 172.16.5.62
+ip dhcp pool Empleados
+network 172.16.5.0 255.255.255.192
+default-router 172.16.4.62
 dns-server 8.8.8.8
 
-ip route 172.16.4.0 255.255.255.192 S0/0/0
+
+ip route 172.16.4.0 255.255.255.0 S0/0/0
 ip route 0.0.0.0 0.0.0.0 S0/0/0
