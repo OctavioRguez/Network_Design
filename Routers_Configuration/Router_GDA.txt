@@ -3,7 +3,7 @@ hostname OficinaGDA
 enable secret class
 
 banner motd #Prohibido entrar a este
-router sin autorización !!!#
+router sin autorizacion !!!#
 
 line con 0
 password cisco
