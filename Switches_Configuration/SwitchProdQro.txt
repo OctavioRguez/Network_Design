@@ -17,25 +17,10 @@ service password-encryption
 banner motd #Prohibido entrar a este
 switch sin autorización !!!#
 
-interface Vlan10
-description vlan SenSueloQro
-ip add 172.16.5.1 255.255.255.128
-ip default-gateway 172.16.5.126
-
-interface Vlan20
-description vlan SenAmbientalesQro
-ip add 172.16.5.129 255.255.255.224
-ip default-gateway 172.16.5.158
-
-interface Vlan30
-description vlan EmpleadosCProdQro
-ip add 172.16.5.161 255.255.255.224
-ip default-gateway 172.16.5.190
-
-interface Vlan40
-description vlan ServiciosCProdQro
-ip add 172.16.5.225 255.255.255.240
-ip default-gateway 172.16.5.238
+interface Vlan1
+no ip address
+shutdown
+no ip default-gateway
 
 vlan 10
 name SenSueloQro
@@ -48,6 +33,12 @@ name EmpleadosCProdQro
 
 vlan 40
 name ServiciosCProdQro
+
+interface Vlan50
+description vlan Admin
+ip address 172.16.5.209 255.255.255.240
+no shutdown
+ip default-gateway 172.16.5.222
 
 interface range fast0/6
 description vlan 10 SenSuelo
@@ -89,7 +80,7 @@ switchport port-security
 no cdp enable
 spanning-tree portfast
 
-interface GigabitEthernet0/1
+interface gigabit0/1
 description Al router
 switchport mode trunk
 no shut
