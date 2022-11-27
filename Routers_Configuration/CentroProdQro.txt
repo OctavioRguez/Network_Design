@@ -25,12 +25,12 @@ no shutdown
 
 interface gigabit 0/0.10
 encapsulation dot1Q 10
-description SenAmbientalesQro
+description SenSueloQro
 ip address 172.16.5.126 255.255.255.128
 
 interface gigabit 0/0.20
 encapsulation dot1Q 20
-description SenSueloQro
+description SenAmbientalesQro
 ip address 170.16.5.158 255.255.255.224
 
 interface gigabit 0/0.30
@@ -52,8 +52,8 @@ no ip dhcp excluded-address 172.16.5.29 172.16.5.30
 no ip dhcp pool LAN1
 
 ip dhcp excluded-address 172.16.5.1
-ip dhcp excluded-address 172.16.5.62
-ip dhcp pool Empleados
+ip dhcp excluded-address 172.16.5.126
+ip dhcp pool SensoresSuelo
 network 172.16.5.0 255.255.255.192
 default-router 172.16.4.62
 dns-server 8.8.8.8
