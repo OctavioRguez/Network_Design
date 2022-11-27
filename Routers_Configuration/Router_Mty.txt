@@ -74,4 +74,4 @@ access-list 101 remark Empleados
 access-list 101 permit ip 172.16.6.128 0.0.0.63 any
 access-list 101 permit ip 172.16.7.160 0.0.0.31 any
 
-ip nat inside source list 101 interface pool LAN-EXTERNO
+ip nat inside source list 101 pool LAN-EXTERNO
