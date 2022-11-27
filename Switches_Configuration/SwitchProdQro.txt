@@ -81,6 +81,6 @@ no cdp enable
 spanning-tree portfast
 
 interface gigabit 0/1
-description Al router
+description Al router CentroProdQro
 switchport mode trunk
 no shutdown
