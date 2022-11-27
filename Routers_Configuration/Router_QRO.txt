@@ -39,7 +39,7 @@ description Admin
 ip address 172.16.4.222 255.255.255.240
 
 interface serial 0/0/0
-ip address 172.16.4.249 255.255.255.252
+ip address 172.16.5.253 255.255.255.252
 description A Centro de produccion QRO
 no shutdown
 
