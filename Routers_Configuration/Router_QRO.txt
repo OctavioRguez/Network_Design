@@ -23,10 +23,6 @@ no ip address
 description Troncal
 no shutdown
 
-interface gigabit 0/1
-no ip address 172.16.4.62 255.255.255.224
-shutdown
-
 interface gigabit 0/0.10
 encapsulation dot1Q 10
 description ServiciosQro
@@ -51,11 +47,6 @@ interface serial 0/0/1
 ip address 132.254.78.254 255.255.255.252
 description Esta es la interface se0/0/1
 no shutdown
-
-no ip dhcp excluded-address 172.16.4.29 172.16.4.30
-no ip dhcp excluded-address 172.16.4.61 172.16.4.62
-no ip dhcp pool LAN1
-no ip dhcp pool LAN2
 
 ip dhcp excluded-address 172.16.4.1
 ip dhcp excluded-address 172.16.4.62
