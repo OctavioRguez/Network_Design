@@ -47,7 +47,7 @@ vlan 30
 name EmpleadosCProdQro
 
 vlan 40
-ServiciosCProdQro
+name ServiciosCProdQro
 
 interface range fast0/1-2
 description vlan 10 SenAmbientales
