@@ -71,8 +71,6 @@ ip nat inside source static tcp 132.254.78.194 172.16.5.193
 ip nat pool LAN-EXTERNO 132.254.78.195 132.254.78.222 netmask 255.255.255.224
 
 access-list 101 remark Empleados y Servers
-access-list 101 permit ip host 172.16.4.225 any
-access-list 101 permit ip host 172.16.5.193 any
 access-list 101 permit ip 172.16.4.128 0.0.0.63 any
 access-list 101 permit ip 172.16.5.160 0.0.0.31 any
 
