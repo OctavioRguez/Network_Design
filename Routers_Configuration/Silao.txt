@@ -3,36 +3,78 @@ hostname Silao
 enable secret class
 
 banner motd #Prohibido entrar a este
-router sin autorización !!!#
+router sin autorizacion !!!#
 
 line con 0
 password cisco
-login
+login local
 logging synchronous
+exec-timeout 5
 
 line vty 0 15
 password cisco
-login
+login local
 logging synchronous
+exec-timeout 5
 
 service password-encryption
 
+default interface gigabit 0/0
 interface gigabit 0/0
-ip address 172.16.11.14 255.255.255.240
-description Esta es la interface G0/0
+no ip address
+description Troncal
 no shutdown
+
+interface gigabit 0/0.10
+encapsulation dot1Q 10
+description SenSuelo
+ip address 172.16.11.126 255.255.255.128
+
+interface gigabit 0/0.20
+encapsulation dot1Q 20
+description SenAmbientales
+ip address 172.16.11.158 255.255.255.224
+
+interface gigabit 0/0.30
+encapsulation dot1Q 30
+description Empleados
+ip address 172.16.11.190 255.255.255.224
+
+interface gigabit 0/0.40
+encapsulation dot1Q 40
+description Servicios
+ip address 172.16.11.206 255.255.255.240
+
+interface gigabit 0/0.50
+encapsulation dot1Q 50
+description Admin
+ip address 172.16.11.222 255.255.255.240
 
 interface serial 0/0/0
-ip address 172.16.10.250 255.255.255.252
-description A oficinas Mty
+ip address 172.16.11.254 255.255.255.252
+description A oficinas Leon
 no shutdown
 
-ip dhcp excluded-address 172.16.11.13 172.16.11.14
+no ip dhcp excluded-address 172.16.11.13 172.16.11.14
+no ip dhcp pool LAN1
 
-ip dhcp pool LAN1
-network 172.16.11.0 255.255.255.240
-default-router 172.16.11.14
+ip dhcp excluded-address 172.16.11.126
+ip dhcp pool SensoresSuelo
+network 172.16.11.0 255.255.255.128
+default-router 172.16.11.126
 dns-server 8.8.8.8
 
-ip route 172.16.10.0 255.255.255.192 S0/0/0
+ip dhcp excluded-address 172.16.11.158
+ip dhcp pool SensoresAmbientales
+network 172.16.11.128 255.255.255.224
+default-router 172.16.11.158
+dns-server 8.8.8.8
+
+ip dhcp excluded-address 172.16.11.190
+ip dhcp pool Empleados
+network 172.16.11.160 255.255.255.224
+default-router 172.16.11.190
+dns-server 8.8.8.8
+
+ip route 172.16.10.0 255.255.255.0 S0/0/0
 ip route 0.0.0.0 0.0.0.0 S0/0/0
