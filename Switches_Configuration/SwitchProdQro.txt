@@ -17,7 +17,7 @@ exec-timeout 5
 service password-encryption
 
 banner motd #Prohibido entrar a este
-switch sin autorización !!!#
+switch sin autorizacion !!!#
 
 interface Vlan1
 no ip address
