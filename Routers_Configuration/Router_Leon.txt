@@ -24,7 +24,7 @@ description Troncal
 no shutdown
 
 interface gigabit 0/1
-no ip address 172.16.10.62 255.255.255.224
+no ip address
 shutdown
 
 interface gigabit 0/0.10
