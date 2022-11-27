@@ -4,13 +4,15 @@ enable secret class
 
 line con 0
 password cisco
-login
+login local
 logging synchronous
+exec-timeout 5
 
 line vty 0 15
 password cisco
-login
+login local
 logging synchronous
+exec-timeout 5
 
 service password-encryption
 
