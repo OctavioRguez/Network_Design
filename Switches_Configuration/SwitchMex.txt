@@ -47,7 +47,7 @@ switchport port-security
 no cdp enable
 spanning-tree portfast
 
-interface range fast0/5-8
+interface range fast0/5-9
 description vlan 10 Empleados
 switchport mode access
 switchport access vlan 10
