@@ -17,15 +17,30 @@ logging synchronous
 
 service password-encryption
 
+default interface GigabitEthernet0/0
 interface gigabit 0/0
-ip address 172.16.10.30 255.255.255.224
-description Esta es la interface G0/0
+no ip address
+description Troncal
 no shutdown
 
 interface gigabit 0/1
-ip address 172.16.10.62 255.255.255.224
-description Esta es la interface G0/1
-no shutdown
+no ip address 172.16.10.62 255.255.255.224
+shutdown
+
+interface gigabit 0/0.10
+encapsulation dot1Q 10
+description ServiciosLeon
+ip address 172.16.10.206 255.255.255.240
+
+interface gigabit 0/0.20
+encapsulation dot1Q 20
+description EmpleadosLeon
+ip address 172.16.10.62 255.255.255.192
+
+interface gigabit 0/0.30
+encapsulation dot1Q 30
+description Admin
+ip address 172.16.10.222 255.255.255.240
 
 interface serial 0/0/0
 ip address 172.16.10.249 255.255.255.252
@@ -37,16 +52,15 @@ ip address 201.254.78.162 255.255.255.252
 description Esta es la interface se0/0/1
 no shutdown
 
-ip dhcp excluded-address 172.16.10.29 172.16.10.30
-ip dhcp excluded-address 172.16.10.61 172.16.10.62
+no ip dhcp excluded-address 172.16.10.29 172.16.10.30
+no ip dhcp excluded-address 172.16.10.61 172.16.10.62
+no ip dhcp pool LAN1
+no ip dhcp pool LAN2
 
-ip dhcp pool LAN1
-network 172.16.10.0 255.255.255.224
-default-router 172.16.10.30
-dns-server 8.8.8.8
-
-ip dhcp pool LAN2
-network 172.16.10.33 255.255.255.224
+ip dhcp excluded-address 172.16.10.1
+ip dhcp excluded-address 172.16.10.62
+ip dhcp pool Empleados
+network 172.16.10.0 255.255.255.192
 default-router 172.16.10.62
 dns-server 8.8.8.8
 
