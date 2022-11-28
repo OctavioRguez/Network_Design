@@ -86,5 +86,5 @@ router eigrp 2
 network 172.16.8.128 0.0.0.63
 network 172.16.8.224 0.0.0.15
 network 172.16.8.240 0.0.0.15
-network 198.68.0.0
+network 192.168.0.0
 no auto-summary
