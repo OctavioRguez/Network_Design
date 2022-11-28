@@ -77,5 +77,5 @@ ip nat inside source list 101 pool LAN-EXTERNO
 
 router eigrp 2
 network 172.16.0.0 0.0.0.255
-network 198.168.0.0
+network 192.168.0.0
 no auto-summary
