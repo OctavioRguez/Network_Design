@@ -83,7 +83,6 @@ access-list 101 permit ip 172.16.9.160 0.0.0.31 any
 ip nat inside source list 101 pool LAN-EXTERNO
 
 router eigrp 2
-no passive-interface default
 network 172.16.8.128 0.0.0.63
 network 172.16.8.224 0.0.0.15
 network 172.16.8.240 0.0.0.15
